@@ -62,8 +62,12 @@ app.add_middleware(
 app.include_router(tickets.router)
 app.include_router(analytics.router)
 
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
+
 # Serve frontend HTML files at /app
-app.mount("/app", StaticFiles(directory="frontend", html=True), name="frontend")
+app.mount("/app", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")
 
 
 # ---------------------------------------------------------------------------
