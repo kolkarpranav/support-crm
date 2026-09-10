@@ -16,6 +16,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from backend.database import engine, Base
 from backend.routes import tickets, analytics
@@ -60,6 +61,9 @@ app.add_middleware(
 # ---------------------------------------------------------------------------
 app.include_router(tickets.router)
 app.include_router(analytics.router)
+
+# Serve frontend HTML files at /app
+app.mount("/app", StaticFiles(directory="frontend", html=True), name="frontend")
 
 
 # ---------------------------------------------------------------------------
