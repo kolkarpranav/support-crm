@@ -17,18 +17,17 @@ import json
 import re
 import logging
 
-from google import genai
-from google.genai import types
+import google.generativeai as genai
 
 from backend.config import settings
 
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Gemini client initialisation (happens once at import time)
+# Gemini model initialisation (happens once at import time)
 # ---------------------------------------------------------------------------
-_client = genai.Client(api_key=settings.gemini_api_key)
-_MODEL  = "gemini-1.5-flash"
+genai.configure(api_key=settings.gemini_api_key)
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 
 # ╔═══════════════════════════════════════════════════════════════════════════╗
@@ -74,7 +73,7 @@ Priority rules:
 - Low: general inquiry, feature request, minor cosmetic issue"""
 
     try:
-        response = _client.models.generate_content(model=_MODEL, contents=prompt)
+        response = model.generate_content(prompt)
         raw_text = response.text.strip()
 
         # Strip markdown code fences if present
@@ -157,7 +156,7 @@ Write a reply that:
 Reply only with the message text, no subject line or signature."""
 
     try:
-        response = _client.models.generate_content(model=_MODEL, contents=prompt)
+        response = model.generate_content(prompt)
         return response.text.strip()
 
     except Exception as exc:
