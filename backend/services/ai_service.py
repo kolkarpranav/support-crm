@@ -67,10 +67,17 @@ Respond with ONLY this JSON, no other text:
 }}
 
 Priority rules:
-- Critical: system down, data loss, security breach, payment failure
-- High: cannot access account, order stuck, major feature broken
-- Medium: partial feature issue, slow performance, billing question
-- Low: general inquiry, feature request, minor cosmetic issue"""
+- Critical: account hacked, security breach, unauthorized access, data loss, system down, payment fraud, account compromised
+- High: cannot login, cannot access account, order stuck, major feature broken, double charged, refund not received, payment failing
+- Medium: partial feature issue, slow performance, billing question, wrong item received, app slow, tracking issue
+- Low: general inquiry, feature request, minor issue, how to questions, address update, gift options
+
+Category rules:
+- Account: login, password, account hacked, unauthorized, profile
+- Billing: payment, refund, charges, invoice, double charge
+- Technical: app crash, bug, error, not working, crashing
+- Shipping: delivery, tracking, lost package, wrong item, not arrived
+- General: everything else"""
 
     try:
         response = model.generate_content(prompt)
