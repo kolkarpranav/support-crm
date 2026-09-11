@@ -13,6 +13,7 @@ Responsibilities
 """
 
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -62,14 +63,6 @@ app.add_middleware(
 app.include_router(tickets.router)
 app.include_router(analytics.router)
 
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
-
-# Serve frontend HTML files at /app
-app.mount("/app", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")
-
-
 # ---------------------------------------------------------------------------
 # Root health-check endpoint
 # ---------------------------------------------------------------------------
@@ -77,6 +70,15 @@ app.mount("/app", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend
 def root():
     """Simple health-check that confirms the API is running."""
     return {"message": "Support CRM API is running"}
+
+
+# ---------------------------------------------------------------------------
+# Frontend Static Files Mount
+# ---------------------------------------------------------------------------
+ROOT_DIR = Path(__file__).resolve().parent.parent
+FRONTEND_DIR = ROOT_DIR / "frontend"
+
+app.mount("/app", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
 
 
 # ---------------------------------------------------------------------------
