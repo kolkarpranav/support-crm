@@ -6,7 +6,7 @@ A full-stack customer support ticketing CRM with AI-powered triage, built as par
 - 🌐 **Live App:** [support-crm-production-8a7b.up.railway.app](https://support-crm-production-8a7b.up.railway.app/app/index.html)
 - 📁 **GitHub Repository:** [github.com/kolkarpranav/support-crm](https://github.com/kolkarpranav/support-crm)
 - 🎥 **Demo Video:** [Watch Demo Video](https://your-video-link-here) *(Update with your video link)*
-- 💼 **LinkedIn:** [My LinkedIn Profile](https://your-linkedin-link-here) *(Update with your LinkedIn profile)*
+- 💼 **LinkedIn:** https://www.linkedin.com/in/pranav-kolkar-306b96252/
 
 ---
 
