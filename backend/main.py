@@ -2,14 +2,6 @@
 backend/main.py
 
 Application entry-point for the Support CRM API.
-
-Responsibilities
-----------------
-1. Create the FastAPI app with metadata.
-2. Register CORS middleware (allow all origins for frontend development).
-3. Create all database tables on startup via SQLAlchemy metadata.
-4. Include routers for tickets and analytics.
-5. Expose a health-check root endpoint.
 """
 
 from contextlib import asynccontextmanager
@@ -21,8 +13,6 @@ from fastapi.staticfiles import StaticFiles
 
 from backend.database import engine, Base
 from backend.routes import tickets, analytics
-
-# Import models so they are registered with Base.metadata before create_all.
 import backend.models  # noqa: F401
 
 
@@ -58,13 +48,7 @@ app.add_middleware(
 )
 
 # ---------------------------------------------------------------------------
-# Routers
-# ---------------------------------------------------------------------------
-app.include_router(tickets.router)
-app.include_router(analytics.router)
-
-# ---------------------------------------------------------------------------
-# Root health-check endpoint
+# Root health-check endpoint (BEFORE routers and static files mount)
 # ---------------------------------------------------------------------------
 @app.get("/", tags=["Health"])
 def root():
@@ -73,12 +57,17 @@ def root():
 
 
 # ---------------------------------------------------------------------------
-# Frontend Static Files Mount
+# Routers (BEFORE static files mount)
 # ---------------------------------------------------------------------------
-ROOT_DIR = Path(__file__).resolve().parent.parent
-FRONTEND_DIR = ROOT_DIR / "frontend"
+app.include_router(tickets.router)
+app.include_router(analytics.router)
 
-app.mount("/app", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
+
+# ---------------------------------------------------------------------------
+# Frontend Static Files Mount (MUST COME LAST)
+# ---------------------------------------------------------------------------
+ROOT_DIR = Path(__file__).parent.parent
+app.mount("/app", StaticFiles(directory=str(ROOT_DIR / "frontend"), html=True), name="frontend")
 
 
 # ---------------------------------------------------------------------------

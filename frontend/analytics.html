@@ -1,287 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analytics — SupportCRM</title>
-  <meta name="description" content="View aggregated metrics and analytics for your customer support tickets." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support CRM - Analytics</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    .sidebar-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 1rem; border-radius: 0.5rem; color: #94a3b8; font-size: 0.875rem; font-weight: 500; transition: all 0.2s; text-decoration: none; }
-    .sidebar-link:hover { color: #fff; background: rgba(255,255,255,0.1); }
-    .sidebar-link.active { color: #fff; background: rgba(59,130,246,0.5); }
-    .stat-card { background: rgba(30,41,59,0.5); border: 1px solid rgba(255,255,255,0.07); border-radius: 1rem; padding: 1.5rem; transition: transform 0.2s, border-color 0.2s; }
-    .stat-card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.15); }
-    @keyframes fadeSlide { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: none; } }
-    .fade-slide { animation: fadeSlide 0.3s ease both; }
-    @keyframes barGrow { from { width: 0 !important; } }
-    .bar-animate { animation: barGrow 0.8s cubic-bezier(0.16,1,0.3,1) both; }
-  </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex">
-
-  <!-- ─── Sidebar ─────────────────────────────────────────────────────── -->
-  <aside class="w-64 min-h-screen bg-[#0f0f1a] border-r border-white/5 flex flex-col fixed top-0 left-0 z-30">
-    <div class="p-6 border-b border-white/5">
-      <div class="flex items-center gap-2.5">
-        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+<body class="bg-gray-100 font-sans text-gray-800 antialiased">
+  <div class="flex h-screen overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-900 text-gray-200 flex flex-col shrink-0">
+      <div class="px-6 py-5 border-b border-gray-800 flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-lg">
+          S
+        </div>
+        <div>
+          <h1 class="font-bold text-white text-base leading-tight">Support CRM</h1>
+          <p class="text-xs text-gray-400">AI-Powered Triage</p>
+        </div>
+      </div>
+      <nav class="flex-1 px-4 py-6 space-y-2">
+        <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white font-medium transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
           </svg>
+          All Tickets
+        </a>
+        <a href="create.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white font-medium transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          </svg>
+          New Ticket
+        </a>
+        <a href="analytics.html" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-blue-600 text-white font-medium shadow-sm transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+          Analytics
+        </a>
+      </nav>
+      <div class="p-4 border-t border-gray-800 text-xs text-gray-400 text-center">
+        v0.1.0 • Railway Deployed
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+      <!-- Top Bar -->
+      <header class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
+        <div>
+          <h2 class="text-xl font-bold text-gray-900">CRM Analytics</h2>
+          <p class="text-sm text-gray-500">Overview of ticket performance, priorities, and categories</p>
         </div>
-        <span class="text-lg font-bold text-white">SupportCRM</span>
-      </div>
-    </div>
-    <nav class="flex-1 p-4 space-y-1">
-      <a href="index.html" class="sidebar-link">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-        All Tickets
-      </a>
-      <a href="create.html" class="sidebar-link">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-        New Ticket
-      </a>
-      <a href="analytics.html" class="sidebar-link active">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-        Analytics
-      </a>
-    </nav>
-    <div class="p-4 border-t border-white/5">
-      <p class="text-xs text-slate-500">SupportCRM v1.0</p>
-    </div>
-  </aside>
+        <button
+          id="refreshBtn"
+          class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold text-gray-700 bg-white hover:bg-gray-50 shadow-sm transition"
+        >
+          <svg id="refreshSpinner" class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          <span>Refresh</span>
+        </button>
+      </header>
 
-  <!-- ─── Main ─────────────────────────────────────────────────────────── -->
-  <main class="ml-64 flex-1 flex flex-col min-h-screen">
-    <header class="sticky top-0 z-20 bg-slate-900/80 backdrop-blur border-b border-white/5 px-8 py-4 flex items-center justify-between">
-      <div>
-        <h1 class="text-xl font-bold text-white">Analytics</h1>
-        <p class="text-slate-400 text-xs mt-0.5" id="last-updated">Loading data...</p>
-      </div>
-      <button id="refresh-btn" onclick="loadAnalytics()"
-        class="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-slate-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">
-        <svg id="refresh-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-        </svg>
-        Refresh
-      </button>
-    </header>
+      <!-- Content Area -->
+      <div class="p-6 space-y-6">
+        <!-- Error Banner -->
+        <div id="errorBanner" class="hidden p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm flex items-center justify-between">
+          <span id="errorMessage">Failed to fetch analytics metrics.</span>
+          <button onclick="fetchAnalytics()" class="underline font-medium hover:text-red-900 ml-4">Retry</button>
+        </div>
 
-    <div id="loading-state" class="p-8 flex items-center justify-center flex-1">
-      <div class="flex flex-col items-center gap-4 text-slate-400">
-        <svg class="w-10 h-10 text-blue-500" style="animation:spin 1s linear infinite" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
-        </svg>
-        <p class="text-sm">Loading analytics...</p>
-      </div>
-    </div>
-
-    <div id="analytics-content" class="hidden p-8 space-y-8">
-
-      <!-- ── Row 1: Status stat cards ── -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
-        <!-- Total -->
-        <div class="stat-card fade-slide" style="animation-delay:0s">
-          <div class="flex items-start justify-between mb-4">
-            <div class="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center">
-              <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        <!-- 4 Stat Cards in a Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Total Tickets -->
+          <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Total Tickets</span>
+              <span class="p-2 rounded-lg bg-blue-50 text-blue-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </span>
+            </div>
+            <div class="mt-3">
+              <div id="statTotal" class="text-3xl font-extrabold text-gray-900">-</div>
+              <p class="text-xs text-gray-400 mt-1">All tickets in system</p>
             </div>
           </div>
-          <p class="text-3xl font-bold text-white" id="stat-total">—</p>
-          <p class="text-sm text-slate-400 mt-1">Total Tickets</p>
-        </div>
 
-        <!-- Open -->
-        <div class="stat-card fade-slide" style="animation-delay:0.05s">
-          <div class="flex items-start justify-between mb-4">
-            <div class="w-10 h-10 bg-orange-500/20 rounded-xl flex items-center justify-center">
-              <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <!-- Open Tickets -->
+          <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-orange-600">Open Tickets</span>
+              <span class="p-2 rounded-lg bg-orange-50 text-orange-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </span>
+            </div>
+            <div class="mt-3">
+              <div id="statOpen" class="text-3xl font-extrabold text-gray-900">-</div>
+              <p class="text-xs text-gray-400 mt-1">Awaiting attention</p>
             </div>
           </div>
-          <p class="text-3xl font-bold text-white" id="stat-open">—</p>
-          <p class="text-sm text-slate-400 mt-1">Open Tickets</p>
-        </div>
 
-        <!-- In Progress -->
-        <div class="stat-card fade-slide" style="animation-delay:0.1s">
-          <div class="flex items-start justify-between mb-4">
-            <div class="w-10 h-10 bg-yellow-500/20 rounded-xl flex items-center justify-center">
-              <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <!-- In Progress Tickets -->
+          <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-yellow-600">In Progress</span>
+              <span class="p-2 rounded-lg bg-yellow-50 text-yellow-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </span>
+            </div>
+            <div class="mt-3">
+              <div id="statInProgress" class="text-3xl font-extrabold text-gray-900">-</div>
+              <p class="text-xs text-gray-400 mt-1">Being actively resolved</p>
             </div>
           </div>
-          <p class="text-3xl font-bold text-white" id="stat-inprogress">—</p>
-          <p class="text-sm text-slate-400 mt-1">In Progress</p>
-        </div>
 
-        <!-- Closed -->
-        <div class="stat-card fade-slide" style="animation-delay:0.15s">
-          <div class="flex items-start justify-between mb-4">
-            <div class="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center">
-              <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <!-- Closed Tickets -->
+          <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-green-600">Closed Tickets</span>
+              <span class="p-2 rounded-lg bg-green-50 text-green-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+            </div>
+            <div class="mt-3">
+              <div id="statClosed" class="text-3xl font-extrabold text-gray-900">-</div>
+              <p class="text-xs text-gray-400 mt-1">Completed & resolved</p>
             </div>
           </div>
-          <p class="text-3xl font-bold text-white" id="stat-closed">—</p>
-          <p class="text-sm text-slate-400 mt-1">Closed Tickets</p>
+        </div>
+
+        <!-- Secondary Insights: Avg Resolution Time & Top Category -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block">Average Resolution Time</span>
+              <span id="statAvgResolution" class="text-2xl font-bold text-gray-900">-</span>
+            </div>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block">Most Common Category</span>
+              <span id="statTopCategory" class="text-2xl font-bold text-gray-900">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Priority Breakdown Section (Horizontal CSS Bars) -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-4">Priority Breakdown</h3>
+          <div id="priorityBars" class="space-y-4">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Category Breakdown Section -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-4">Category Breakdown</h3>
+          <div id="categoryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Rendered by JS -->
+          </div>
         </div>
       </div>
-
-      <!-- ── Row 2: Resolution time + Top category ── -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div class="stat-card fade-slide" style="animation-delay:0.2s">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 bg-purple-500/20 rounded-xl flex items-center justify-center">
-              <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            </div>
-            <p class="text-sm font-semibold text-slate-400">Avg. Resolution Time</p>
-          </div>
-          <p class="text-4xl font-bold text-white" id="stat-resolution">—</p>
-          <p class="text-xs text-slate-500 mt-1">Average hours to close a ticket</p>
-        </div>
-
-        <div class="stat-card fade-slide" style="animation-delay:0.25s">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 bg-cyan-500/20 rounded-xl flex items-center justify-center">
-              <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a2 2 0 014-4z"/></svg>
-            </div>
-            <p class="text-sm font-semibold text-slate-400">Most Common Category</p>
-          </div>
-          <p class="text-4xl font-bold text-white" id="stat-top-category">—</p>
-          <p class="text-xs text-slate-500 mt-1" id="stat-top-category-count"></p>
-        </div>
-      </div>
-
-      <!-- ── Priority Breakdown ── -->
-      <div class="bg-slate-800/50 border border-white/5 rounded-2xl p-6 fade-slide" style="animation-delay:0.3s">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="font-semibold text-white">Priority Breakdown</h2>
-          <span id="priority-total-label" class="text-xs text-slate-400"></span>
-        </div>
-        <div id="priority-bars" class="space-y-4"></div>
-      </div>
-
-      <!-- ── Category Breakdown ── -->
-      <div class="bg-slate-800/50 border border-white/5 rounded-2xl p-6 fade-slide" style="animation-delay:0.35s">
-        <h2 class="font-semibold text-white mb-6">Category Breakdown</h2>
-        <div id="category-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"></div>
-      </div>
-
-    </div>
-  </main>
+    </main>
+  </div>
 
   <script>
     const API_BASE = '';
 
-    const PRIORITY_CONFIG = {
-      'Critical':   { color: 'bg-red-500',    track: 'bg-red-500/20',    text: 'text-red-400' },
-      'High':       { color: 'bg-orange-500',  track: 'bg-orange-500/20', text: 'text-orange-400' },
-      'Medium':     { color: 'bg-yellow-500',  track: 'bg-yellow-500/20', text: 'text-yellow-400' },
-      'Low':        { color: 'bg-green-500',   track: 'bg-green-500/20',  text: 'text-green-400' },
-      'Unassigned': { color: 'bg-slate-500',   track: 'bg-slate-500/20',  text: 'text-slate-400' },
-    };
+    const PRIORITY_ORDER = [
+      { key: 'Critical', color: 'bg-red-500', track: 'bg-red-100', text: 'text-red-700' },
+      { key: 'High', color: 'bg-orange-500', track: 'bg-orange-100', text: 'text-orange-700' },
+      { key: 'Medium', color: 'bg-yellow-400', track: 'bg-yellow-100', text: 'text-yellow-700' },
+      { key: 'Low', color: 'bg-green-500', track: 'bg-green-100', text: 'text-green-700' },
+    ];
 
-    async function loadAnalytics() {
-      const icon = document.getElementById('refresh-icon');
-      icon.style.animation = 'spin 1s linear infinite';
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
 
-      document.getElementById('loading-state').classList.remove('hidden');
-      document.getElementById('analytics-content').classList.add('hidden');
+    async function fetchAnalytics() {
+      const errorBanner = document.getElementById('errorBanner');
+      const errorMessage = document.getElementById('errorMessage');
+      const refreshSpinner = document.getElementById('refreshSpinner');
+
+      errorBanner.classList.add('hidden');
+      refreshSpinner.classList.add('animate-spin');
 
       try {
         const res = await fetch(`${API_BASE}/api/analytics`);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) {
+          throw new Error(`Analytics request failed: ${res.status} ${res.statusText}`);
+        }
         const data = await res.json();
 
-        renderAnalytics(data);
-        document.getElementById('last-updated').textContent =
-          'Last updated: ' + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+        // 4 Stat Cards
+        document.getElementById('statTotal').textContent = data.total_tickets ?? 0;
+        document.getElementById('statOpen').textContent = data.open_count ?? 0;
+        document.getElementById('statInProgress').textContent = data.in_progress_count ?? 0;
+        document.getElementById('statClosed').textContent = data.closed_count ?? 0;
+
+        // Avg Resolution Time
+        if (data.avg_resolution_hours != null) {
+          const hrs = data.avg_resolution_hours;
+          document.getElementById('statAvgResolution').textContent = hrs < 1
+            ? `${Math.round(hrs * 60)} mins`
+            : `${hrs} hrs`;
+        } else {
+          document.getElementById('statAvgResolution').textContent = 'N/A';
+        }
+
+        // Priority Breakdown (CSS bars)
+        const priorityContainer = document.getElementById('priorityBars');
+        const priorityData = data.tickets_by_priority || {};
+        const total = data.total_tickets || 0;
+
+        priorityContainer.innerHTML = PRIORITY_ORDER.map(({ key, color, track, text }) => {
+          const count = priorityData[key] || 0;
+          const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+          return `
+            <div>
+              <div class="flex justify-between items-center text-sm font-medium mb-1">
+                <span class="${text} font-semibold">${key}</span>
+                <span class="text-gray-500">${count} (${pct}%)</span>
+              </div>
+              <div class="w-full ${track} rounded-full h-3 overflow-hidden">
+                <div class="${color} h-3 rounded-full transition-all duration-500" style="width: ${pct}%"></div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // Also check if there are unassigned priority tickets
+        if (priorityData['Unassigned']) {
+          const unassignedCount = priorityData['Unassigned'];
+          const pct = total > 0 ? Math.round((unassignedCount / total) * 100) : 0;
+          priorityContainer.innerHTML += `
+            <div>
+              <div class="flex justify-between items-center text-sm font-medium mb-1">
+                <span class="text-gray-600 font-semibold">Unassigned / Pending</span>
+                <span class="text-gray-500">${unassignedCount} (${pct}%)</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
+                <div class="bg-gray-400 h-3 rounded-full transition-all duration-500" style="width: ${pct}%"></div>
+              </div>
+            </div>
+          `;
+        }
+
+        // Category Breakdown
+        const categoryGrid = document.getElementById('categoryGrid');
+        const categories = data.tickets_by_category || {};
+        const catEntries = Object.entries(categories);
+
+        // Compute top category
+        if (catEntries.length > 0) {
+          const sorted = [...catEntries].sort((a, b) => b[1] - a[1]);
+          document.getElementById('statTopCategory').textContent = sorted[0][0];
+        } else {
+          document.getElementById('statTopCategory').textContent = 'None';
+        }
+
+        if (catEntries.length === 0) {
+          categoryGrid.innerHTML = `
+            <div class="col-span-full py-6 text-center text-gray-400 text-sm">
+              No categories recorded yet.
+            </div>
+          `;
+        } else {
+          categoryGrid.innerHTML = catEntries.map(([catName, count]) => `
+            <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 flex flex-col justify-between">
+              <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate mb-2" title="${escapeHtml(catName)}">
+                ${escapeHtml(catName)}
+              </span>
+              <div class="flex items-baseline justify-between">
+                <span class="text-2xl font-bold text-gray-900">${count}</span>
+                <span class="text-xs text-gray-400">tickets</span>
+              </div>
+            </div>
+          `).join('');
+        }
+
       } catch (err) {
-        document.getElementById('last-updated').textContent = 'Failed to load: ' + err.message;
+        errorBanner.classList.remove('hidden');
+        errorMessage.textContent = err.message || 'Error loading analytics.';
       } finally {
-        icon.style.animation = '';
-        document.getElementById('loading-state').classList.add('hidden');
-        document.getElementById('analytics-content').classList.remove('hidden');
+        refreshSpinner.classList.remove('animate-spin');
       }
     }
 
-    function renderAnalytics(data) {
-      // Stat cards
-      document.getElementById('stat-total').textContent      = data.total_tickets ?? 0;
-      document.getElementById('stat-open').textContent       = data.open_count ?? 0;
-      document.getElementById('stat-inprogress').textContent = data.in_progress_count ?? 0;
-      document.getElementById('stat-closed').textContent     = data.closed_count ?? 0;
-      document.getElementById('stat-resolution').textContent =
-        data.avg_resolution_hours != null ? `${data.avg_resolution_hours}h` : 'N/A';
+    document.getElementById('refreshBtn').addEventListener('click', fetchAnalytics);
 
-      // Top category
-      const byCategory = data.tickets_by_category || {};
-      const topCat = Object.entries(byCategory).sort((a, b) => b[1] - a[1])[0];
-      if (topCat) {
-        document.getElementById('stat-top-category').textContent = topCat[0];
-        document.getElementById('stat-top-category-count').textContent = `${topCat[1]} tickets`;
-      } else {
-        document.getElementById('stat-top-category').textContent = 'N/A';
-      }
-
-      // Priority bars
-      const byPriority = data.tickets_by_priority || {};
-      const priorityOrder = ['Critical', 'High', 'Medium', 'Low', 'Unassigned'];
-      const maxPriority = Math.max(...Object.values(byPriority), 1);
-      const total = data.total_tickets || 1;
-
-      document.getElementById('priority-total-label').textContent = `${data.total_tickets} total tickets`;
-
-      const priorityBarsEl = document.getElementById('priority-bars');
-      if (Object.keys(byPriority).length === 0) {
-        priorityBarsEl.innerHTML = '<p class="text-slate-500 text-sm italic">No data yet.</p>';
-      } else {
-        const orderedPriorities = priorityOrder.filter(p => byPriority[p] !== undefined);
-        const others = Object.keys(byPriority).filter(p => !priorityOrder.includes(p));
-
-        priorityBarsEl.innerHTML = [...orderedPriorities, ...others].map((priority, i) => {
-          const count  = byPriority[priority] || 0;
-          const pct    = Math.round((count / maxPriority) * 100);
-          const totPct = Math.round((count / total) * 100);
-          const cfg    = PRIORITY_CONFIG[priority] || PRIORITY_CONFIG['Unassigned'];
-          return `
-            <div class="space-y-1.5" style="animation-delay:${i * 0.06}s">
-              <div class="flex items-center justify-between text-sm">
-                <span class="font-medium ${cfg.text}">${priority}</span>
-                <span class="text-slate-400">${count} <span class="text-slate-600">(${totPct}%)</span></span>
-              </div>
-              <div class="h-2.5 ${cfg.track} rounded-full overflow-hidden">
-                <div class="${cfg.color} h-full rounded-full bar-animate" style="width:${pct}%;animation-delay:${i*0.1}s"></div>
-              </div>
-            </div>`;
-        }).join('');
-      }
-
-      // Category grid
-      const categoryGridEl = document.getElementById('category-grid');
-      const categoryEntries = Object.entries(byCategory).sort((a, b) => b[1] - a[1]);
-      if (categoryEntries.length === 0) {
-        categoryGridEl.innerHTML = '<p class="col-span-full text-slate-500 text-sm italic">No data yet.</p>';
-      } else {
-        categoryGridEl.innerHTML = categoryEntries.map(([cat, count], i) => {
-          const pct = Math.round((count / total) * 100);
-          return `
-            <div class="bg-slate-700/40 border border-white/5 rounded-xl p-4 text-center hover:border-blue-500/30 transition-all duration-200 fade-slide" style="animation-delay:${i*0.05}s">
-              <p class="text-2xl font-bold text-white">${count}</p>
-              <p class="text-sm font-medium text-slate-300 mt-0.5">${cat}</p>
-              <p class="text-xs text-slate-500 mt-1">${pct}% of total</p>
-            </div>`;
-        }).join('');
-      }
-    }
-
-    // Spin keyframe injected for refresh icon
-    const style = document.createElement('style');
-    style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-    document.head.appendChild(style);
-
-    loadAnalytics();
+    // Initial load
+    fetchAnalytics();
   </script>
 </body>
 </html>

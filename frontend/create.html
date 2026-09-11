@@ -1,273 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>New Ticket — SupportCRM</title>
-  <meta name="description" content="Submit a new customer support ticket to the SupportCRM system." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support CRM - New Ticket</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    .sidebar-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 1rem; border-radius: 0.5rem; color: #94a3b8; font-size: 0.875rem; font-weight: 500; transition: all 0.2s; text-decoration: none; }
-    .sidebar-link:hover { color: #fff; background: rgba(255,255,255,0.1); }
-    .sidebar-link.active { color: #fff; background: rgba(59,130,246,0.5); }
-    .form-input { width: 100%; background: rgba(30,41,59,0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 0.75rem 1rem; font-size: 0.875rem; color: #f1f5f9; transition: all 0.2s; outline: none; font-family: 'Inter', sans-serif; }
-    .form-input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.2); }
-    .form-input.error { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.2); }
-    .form-label { display: block; font-size: 0.8125rem; font-weight: 600; color: #cbd5e1; margin-bottom: 0.5rem; }
-    .char-count { font-size: 0.75rem; color: #64748b; text-align: right; margin-top: 0.25rem; }
-  </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex">
-
-  <!-- ─── Sidebar ─────────────────────────────────────────────────────── -->
-  <aside class="w-64 min-h-screen bg-[#0f0f1a] border-r border-white/5 flex flex-col fixed top-0 left-0 z-30">
-    <div class="p-6 border-b border-white/5">
-      <div class="flex items-center gap-2.5">
-        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-          </svg>
+<body class="bg-gray-100 font-sans text-gray-800 antialiased">
+  <div class="flex h-screen overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-900 text-gray-200 flex flex-col shrink-0">
+      <div class="px-6 py-5 border-b border-gray-800 flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-lg">
+          S
         </div>
-        <span class="text-lg font-bold text-white">SupportCRM</span>
-      </div>
-    </div>
-    <nav class="flex-1 p-4 space-y-1">
-      <a href="index.html" class="sidebar-link">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-        All Tickets
-      </a>
-      <a href="create.html" class="sidebar-link active">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-        New Ticket
-      </a>
-      <a href="analytics.html" class="sidebar-link">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-        Analytics
-      </a>
-    </nav>
-    <div class="p-4 border-t border-white/5">
-      <p class="text-xs text-slate-500">SupportCRM v1.0</p>
-    </div>
-  </aside>
-
-  <!-- ─── Main Content ─────────────────────────────────────────────────── -->
-  <main class="ml-64 flex-1 flex flex-col min-h-screen">
-    <header class="sticky top-0 z-20 bg-slate-900/80 backdrop-blur border-b border-white/5 px-8 py-4">
-      <div class="flex items-center gap-3">
-        <a href="index.html" class="text-slate-400 hover:text-white transition-colors">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-        </a>
         <div>
-          <h1 class="text-xl font-bold text-white">Create New Ticket</h1>
-          <p class="text-slate-400 text-xs mt-0.5">Fill in the details below to open a support ticket</p>
+          <h1 class="font-bold text-white text-base leading-tight">Support CRM</h1>
+          <p class="text-xs text-gray-400">AI-Powered Triage</p>
         </div>
       </div>
-    </header>
+      <nav class="flex-1 px-4 py-6 space-y-2">
+        <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white font-medium transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+          All Tickets
+        </a>
+        <a href="create.html" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-blue-600 text-white font-medium shadow-sm transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          </svg>
+          New Ticket
+        </a>
+        <a href="analytics.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white font-medium transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+          Analytics
+        </a>
+      </nav>
+      <div class="p-4 border-t border-gray-800 text-xs text-gray-400 text-center">
+        v0.1.0 • Railway Deployed
+      </div>
+    </aside>
 
-    <div class="p-8 flex-1 flex justify-center">
-      <div class="w-full max-w-2xl">
-
-        <!-- Success Toast -->
-        <div id="success-toast" class="hidden mb-6 flex items-center gap-3 bg-green-500/10 border border-green-500/30 text-green-400 px-5 py-4 rounded-xl">
-          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span id="success-msg" class="text-sm font-medium"></span>
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+      <!-- Top Bar -->
+      <header class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
+        <div>
+          <h2 class="text-xl font-bold text-gray-900">Create New Ticket</h2>
+          <p class="text-sm text-gray-500">Submit a support request to initiate AI triage</p>
         </div>
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 font-medium transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to Tickets
+        </a>
+      </header>
 
-        <!-- Error Toast -->
-        <div id="error-toast" class="hidden mb-6 flex items-center gap-3 bg-red-500/10 border border-red-500/30 text-red-400 px-5 py-4 rounded-xl">
-          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span id="error-msg" class="text-sm font-medium"></span>
-        </div>
-
-        <!-- Form Card -->
-        <div class="bg-slate-800/50 border border-white/5 rounded-2xl shadow-2xl overflow-hidden">
-          <div class="px-8 py-5 border-b border-white/5 bg-gradient-to-r from-blue-600/10 to-transparent">
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-              </div>
-              <div>
-                <h2 class="font-semibold text-white">Ticket Details</h2>
-                <p class="text-xs text-slate-400">AI will automatically classify priority and category</p>
-              </div>
-            </div>
+      <!-- Form Container -->
+      <div class="p-6 flex justify-center items-start">
+        <div class="w-full max-w-2xl bg-white border border-gray-200 rounded-2xl shadow-sm p-8">
+          <!-- Toast notification -->
+          <div id="toast" class="hidden mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-800 flex items-center gap-3">
+            <svg class="w-5 h-5 text-green-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toastMessage" class="font-medium text-sm"></span>
           </div>
 
-          <form id="ticket-form" class="p-8 space-y-6" novalidate>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Customer Name -->
-              <div>
-                <label for="customer_name" class="form-label">Customer Name <span class="text-red-400">*</span></label>
-                <input type="text" id="customer_name" name="customer_name" maxlength="100"
-                  class="form-input" placeholder="John Doe" required />
-                <p class="field-error text-red-400 text-xs mt-1 hidden"></p>
-              </div>
+          <!-- Error Alert -->
+          <div id="errorAlert" class="hidden mb-6 p-4 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm flex items-center justify-between">
+            <span id="errorMessage"></span>
+          </div>
 
-              <!-- Customer Email -->
-              <div>
-                <label for="customer_email" class="form-label">Customer Email <span class="text-red-400">*</span></label>
-                <input type="email" id="customer_email" name="customer_email"
-                  class="form-input" placeholder="john@example.com" required />
-                <p class="field-error text-red-400 text-xs mt-1 hidden"></p>
-              </div>
+          <form id="createTicketForm" class="space-y-6" novalidate>
+            <!-- Customer Name -->
+            <div>
+              <label for="customerName" class="block text-sm font-semibold text-gray-700 mb-1">
+                Customer Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="customerName"
+                placeholder="e.g. Jane Doe"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                required
+              />
+              <p id="nameError" class="hidden mt-1 text-xs text-red-600">Customer name is required.</p>
+            </div>
+
+            <!-- Customer Email -->
+            <div>
+              <label for="customerEmail" class="block text-sm font-semibold text-gray-700 mb-1">
+                Customer Email <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="customerEmail"
+                placeholder="e.g. jane.doe@example.com"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                required
+              />
+              <p id="emailError" class="hidden mt-1 text-xs text-red-600">Please enter a valid email address.</p>
             </div>
 
             <!-- Subject -->
             <div>
-              <label for="subject" class="form-label">Subject <span class="text-red-400">*</span></label>
-              <input type="text" id="subject" name="subject" maxlength="200"
-                class="form-input" placeholder="Brief description of the issue" required />
-              <div class="flex justify-between items-center mt-1">
-                <p class="field-error text-red-400 text-xs hidden"></p>
-                <span class="char-count ml-auto" id="subject-count">0 / 200</span>
-              </div>
+              <label for="subject" class="block text-sm font-semibold text-gray-700 mb-1">
+                Subject <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="subject"
+                placeholder="Brief summary of the problem"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                required
+              />
+              <p id="subjectError" class="hidden mt-1 text-xs text-red-600">Subject is required.</p>
             </div>
 
             <!-- Description -->
             <div>
-              <label for="description" class="form-label">Description <span class="text-red-400">*</span></label>
-              <textarea id="description" name="description" rows="6"
-                class="form-input resize-none"
-                placeholder="Please describe the issue in detail. Include any relevant steps to reproduce, error messages, or account details. (Minimum 20 characters)"></textarea>
-              <div class="flex justify-between items-center mt-1">
-                <p class="field-error text-red-400 text-xs hidden" id="desc-error"></p>
-                <span class="char-count ml-auto" id="desc-count">0 chars (min 20)</span>
+              <div class="flex items-center justify-between mb-1">
+                <label for="description" class="block text-sm font-semibold text-gray-700">
+                  Description <span class="text-red-500">*</span>
+                </label>
+                <span id="charCount" class="text-xs text-gray-400">0 / min 20 chars</span>
               </div>
+              <textarea
+                id="description"
+                rows="5"
+                placeholder="Detailed description of the issue (minimum 20 characters)..."
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                required
+              ></textarea>
+              <p id="descriptionError" class="hidden mt-1 text-xs text-red-600">Description must be at least 20 characters long.</p>
             </div>
 
-            <!-- AI notice -->
-            <div class="flex items-start gap-3 bg-blue-500/5 border border-blue-500/20 rounded-xl px-4 py-3">
-              <span class="text-xl mt-0.5">🤖</span>
-              <p class="text-slate-400 text-xs leading-relaxed">
-                <span class="text-blue-400 font-semibold">AI-Powered Triage:</span>
-                After submission, our AI will automatically analyze your ticket and assign a priority, category, and summary. This usually takes a few seconds.
-              </p>
+            <!-- Submit Button -->
+            <div class="pt-2">
+              <button
+                type="submit"
+                id="submitBtn"
+                class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-sm transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <svg id="btnSpinner" class="hidden animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+                <span id="btnText">Create Ticket</span>
+              </button>
             </div>
-
-            <!-- Submit -->
-            <button type="submit" id="submit-btn"
-              class="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-blue-900/40 text-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-              Create Ticket
-            </button>
           </form>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
+  </div>
 
   <script>
     const API_BASE = '';
 
-    // ── Character counters ────────────────────────────────────────────────────
+    const form = document.getElementById('createTicketForm');
+    const customerNameInput = document.getElementById('customerName');
+    const customerEmailInput = document.getElementById('customerEmail');
     const subjectInput = document.getElementById('subject');
-    const descInput    = document.getElementById('description');
+    const descriptionInput = document.getElementById('description');
+    const charCount = document.getElementById('charCount');
 
-    subjectInput.addEventListener('input', () => {
-      document.getElementById('subject-count').textContent = `${subjectInput.value.length} / 200`;
+    const submitBtn = document.getElementById('submitBtn');
+    const btnSpinner = document.getElementById('btnSpinner');
+    const btnText = document.getElementById('btnText');
+
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+    const errorAlert = document.getElementById('errorAlert');
+    const errorMessage = document.getElementById('errorMessage');
+
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const subjectError = document.getElementById('subjectError');
+    const descriptionError = document.getElementById('descriptionError');
+
+    // Live character counter for description
+    descriptionInput.addEventListener('input', () => {
+      const len = descriptionInput.value.length;
+      charCount.textContent = `${len} / min 20 chars`;
+      if (len >= 20) {
+        charCount.classList.remove('text-red-500');
+        charCount.classList.add('text-green-600');
+        descriptionError.classList.add('hidden');
+      } else {
+        charCount.classList.remove('text-green-600');
+        charCount.classList.add('text-gray-400');
+      }
     });
 
-    descInput.addEventListener('input', () => {
-      const len = descInput.value.length;
-      const el  = document.getElementById('desc-count');
-      el.textContent = len < 20 ? `${len} chars (min 20)` : `${len} chars ✓`;
-      el.className = 'char-count ml-auto ' + (len < 20 ? 'text-slate-500' : 'text-green-400');
-    });
-
-    // ── Validation ────────────────────────────────────────────────────────────
-    function showFieldError(inputId, message) {
-      const input = document.getElementById(inputId);
-      const errorEl = input.parentElement.querySelector('.field-error');
-      input.classList.add('error');
-      if (errorEl) { errorEl.textContent = message; errorEl.classList.remove('hidden'); }
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    function clearErrors() {
-      document.querySelectorAll('.form-input').forEach(el => el.classList.remove('error'));
-      document.querySelectorAll('.field-error').forEach(el => el.classList.add('hidden'));
-      document.getElementById('success-toast').classList.add('hidden');
-      document.getElementById('error-toast').classList.add('hidden');
-    }
-
-    function validateForm() {
-      clearErrors();
-      let valid = true;
-
-      const name  = document.getElementById('customer_name').value.trim();
-      const email = document.getElementById('customer_email').value.trim();
-      const subj  = document.getElementById('subject').value.trim();
-      const desc  = document.getElementById('description').value.trim();
-
-      if (!name) { showFieldError('customer_name', 'Customer name is required.'); valid = false; }
-      if (!email) { showFieldError('customer_email', 'Email address is required.'); valid = false; }
-      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showFieldError('customer_email', 'Please enter a valid email address.'); valid = false;
-      }
-      if (!subj) { showFieldError('subject', 'Subject is required.'); valid = false; }
-      if (!desc) { showFieldError('description', 'Description is required.'); valid = false; }
-      else if (desc.length < 20) {
-        showFieldError('description', `Description must be at least 20 characters (currently ${desc.length}).`); valid = false;
-      }
-
-      return valid;
-    }
-
-    // ── Form submit ───────────────────────────────────────────────────────────
-    document.getElementById('ticket-form').addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!validateForm()) return;
 
-      const btn = document.getElementById('submit-btn');
-      btn.disabled = true;
-      btn.innerHTML = `
-        <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
-        </svg>
-        Creating Ticket...`;
+      // Reset errors
+      nameError.classList.add('hidden');
+      emailError.classList.add('hidden');
+      subjectError.classList.add('hidden');
+      descriptionError.classList.add('hidden');
+      errorAlert.classList.add('hidden');
 
-      const payload = {
-        customer_name:  document.getElementById('customer_name').value.trim(),
-        customer_email: document.getElementById('customer_email').value.trim(),
-        subject:        document.getElementById('subject').value.trim(),
-        description:    document.getElementById('description').value.trim(),
-      };
+      let isValid = true;
+      const name = customerNameInput.value.trim();
+      const email = customerEmailInput.value.trim();
+      const subject = subjectInput.value.trim();
+      const description = descriptionInput.value.trim();
+
+      if (!name) {
+        nameError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (!email || !validateEmail(email)) {
+        emailError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (!subject) {
+        subjectError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (description.length < 20) {
+        descriptionError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      // Loading state
+      submitBtn.disabled = true;
+      btnSpinner.classList.remove('hidden');
+      btnText.textContent = 'Creating Ticket...';
 
       try {
-        const res = await fetch(`${API_BASE}/api/tickets`, {
+        const response = await fetch(`${API_BASE}/api/tickets`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            customer_name: name,
+            customer_email: email,
+            subject: subject,
+            description: description,
+          }),
         });
 
-        if (!res.ok) {
-          const err = await res.json().catch(() => ({}));
-          throw new Error(err.detail || `Server error ${res.status}`);
+        if (!response.ok) {
+          const errData = await response.json().catch(() => ({}));
+          throw new Error(errData.detail || `Server responded with ${response.status}`);
         }
 
-        const data = await res.json();
-        const toastEl = document.getElementById('success-toast');
-        document.getElementById('success-msg').textContent =
-          `🎉 ${data.ticket_id} created! AI triage is running in the background...`;
-        toastEl.classList.remove('hidden');
+        const data = await response.json();
+        const ticketId = data.ticket_id || 'new ticket';
 
+        toastMessage.textContent = `Ticket ${ticketId} created!`;
+        toast.classList.remove('hidden');
+
+        // Redirect after 1.5 seconds
         setTimeout(() => {
-          window.location.href = `ticket.html?id=${encodeURIComponent(data.ticket_id)}`;
+          window.location.href = `ticket.html?id=${encodeURIComponent(ticketId)}`;
         }, 1500);
 
       } catch (err) {
-        const toastEl = document.getElementById('error-toast');
-        document.getElementById('error-msg').textContent = err.message || 'An unexpected error occurred.';
-        toastEl.classList.remove('hidden');
-
-        btn.disabled = false;
-        btn.innerHTML = `
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-          </svg>
-          Create Ticket`;
+        errorAlert.classList.remove('hidden');
+        errorMessage.textContent = err.message || 'Failed to submit ticket. Please check connection.';
+        submitBtn.disabled = false;
+        btnSpinner.classList.add('hidden');
+        btnText.textContent = 'Create Ticket';
       }
     });
   </script>
